@@ -1,8 +1,14 @@
 import Link from "next/link";
 import React from "react";
 import MyContainer from "./MyContainer";
+import { auth } from "@/auth";
+import Image from "next/image";
+import Logout from "./Logout";
 
-export default function Navbar() {
+export default async function Navbar() {
+  const session = await auth();
+  console.log(session);
+
   const links = (
     <>
       <li>
@@ -61,7 +67,30 @@ export default function Navbar() {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Sign In</a>
+          {session?.user ? (
+            <details className="dropdown">
+              <summary className="btn m-1">
+                <Image
+                  width={30}
+                  height={30}
+                  src={session?.user?.image}
+                  alt={session?.user?.name}
+                />
+              </summary>
+              <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                <li>
+                  <Logout></Logout>
+                </li>
+                <li>
+                  <a>Item 2</a>
+                </li>
+              </ul>
+            </details>
+          ) : (
+            <Link href={"/login"} className="btn">
+              Sign In
+            </Link>
+          )}
         </div>
       </MyContainer>
     </div>
