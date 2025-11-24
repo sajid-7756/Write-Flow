@@ -25,6 +25,7 @@ export default function AddBlogForm({ user }) {
       publishedAt: new Date().toLocaleDateString(),
       author: user?.name,
       authorAvatar: user?.image,
+      authorEmail: user?.email,
     };
 
     const res = await fetch(`http://localhost:4000/blogs`, {

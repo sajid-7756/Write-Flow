@@ -7,7 +7,7 @@ export default function Login() {
       <h1 className="text-3xl font-semibold text-primary">Login with google</h1>
       <form
         action={doSocialLogin}
-        className="bg-accent p-8 rounded-xl shadow-md"
+        className="bg-linear-to-tr from-indigo-100 via-pink-50 to-purple-100 p-8 rounded-xl shadow-md h-52 flex justify-center items-center"
       >
         <button
           type="submit"
