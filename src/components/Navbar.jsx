@@ -33,7 +33,7 @@ export default async function Navbar() {
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm ">
+    <div className="navbar shadow-sm sticky z-50 top-0 bg-white/30 ">
       <MyContainer className="flex">
         <div className="navbar-start">
           <div className="dropdown">

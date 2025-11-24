@@ -1,3 +1,11 @@
+import {
+  FaFileAlt,
+  FaLaptopCode,
+  FaLightbulb,
+  FaPenFancy,
+  FaShieldAlt,
+} from "react-icons/fa";
+
 // components/HeroSection.jsx
 export default function HeroSection() {
   return (
@@ -23,9 +31,15 @@ export default function HeroSection() {
 
         {/* Right Illustration Placeholder */}
         <div className="flex justify-center">
-          <div className="w-full max-w-md h-72 bg-linear-to-tr from-purple-100 to-pink-100 rounded-3xl flex items-center justify-center shadow-md">
+          <div className="w-full h-120 bg-linear-to-tr from-purple-100 to-pink-100 rounded-3xl flex items-center justify-center shadow-md">
             <span className="text-purple-500 text-xl font-semibold">
-              [ Illustration Placeholder ]
+              <div className="flex items-center justify-center gap-6 text-purple-600">
+                <FaPenFancy className="text-4xl" />
+                <FaLaptopCode className="text-4xl" />
+                <FaFileAlt className="text-4xl" />
+                <FaLightbulb className="text-4xl" />
+                <FaShieldAlt   className="text-4xl" />
+              </div>
             </span>
           </div>
         </div>

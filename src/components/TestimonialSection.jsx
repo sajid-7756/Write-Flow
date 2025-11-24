@@ -1,80 +1,70 @@
 import Image from "next/image";
+import { FaQuoteLeft } from "react-icons/fa";
 
-// components/TestimonialSection.jsx
 export default function TestimonialSection() {
   return (
-    <section className="bg-white py-16 px-6">
+    <section className="py-20 px-6">
       <div className="max-w-7xl mx-auto text-center">
+        {/* Heading */}
         <h2 className="text-4xl font-bold text-gray-900 mb-4">
           What Writers Say
         </h2>
-        <p className="text-lg text-gray-600 mb-12">
+        <p className="text-lg text-gray-600 mb-16 max-w-2xl mx-auto">
           Trusted by creators, bloggers, and storytellers around the world.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Testimonial 1 */}
-          <div className="bg-slate-50 rounded-xl shadow-md p-6 text-left hover:shadow-lg transition">
-            <div className="flex items-center gap-4 mb-4">
-              <Image
-                width={0}
-                height={0}
-                src="https://i.pravatar.cc/100?img=32"
-                alt="User 1"
-                className="w-12 h-12 rounded-full"
-              />
-              <div>
-                <h3 className="font-semibold text-gray-800">Amina Rahman</h3>
-                <p className="text-sm text-gray-500">Travel Blogger</p>
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {/* Testimonial Card */}
+          {[
+            {
+              name: "Amina Rahman",
+              role: "Travel Blogger",
+              avatar: "https://i.pravatar.cc/100?img=32",
+              quote:
+                "WriteFlow makes publishing feel effortless. I love how clean and fast everything is.",
+            },
+            {
+              name: "Jason Lee",
+              role: "Tech Writer",
+              avatar: "https://i.pravatar.cc/100?img=45",
+              quote:
+                "The speed and simplicity of WriteFlow helped me grow my audience faster than ever.",
+            },
+            {
+              name: "Nadia Chowdhury",
+              role: "Poet & Essayist",
+              avatar: "https://i.pravatar.cc/100?img=12",
+              quote:
+                "I feel safe sharing my work here. The platform is secure and beautifully designed.",
+            },
+          ].map((t, i) => (
+            <div
+              key={i}
+              className="bg-white rounded-xl shadow-md p-8 text-left hover:shadow-xl hover:-translate-y-1 transition transform flex flex-col"
+            >
+              {/* Avatar + Name */}
+              <div className="flex items-center gap-4 mb-6">
+                <Image
+                  src={t.avatar}
+                  alt={t.name}
+                  width={48}
+                  height={48}
+                  className="rounded-full"
+                />
+                <div>
+                  <h3 className="font-semibold text-gray-800">{t.name}</h3>
+                  <p className="text-sm text-gray-500">{t.role}</p>
+                </div>
               </div>
-            </div>
-            <p className="text-gray-700">
-              “WriteFlow makes publishing feel effortless. I love how clean and
-              fast everything is.”
-            </p>
-          </div>
 
-          {/* Testimonial 2 */}
-          <div className="bg-slate-50 rounded-xl shadow-md p-6 text-left hover:shadow-lg transition">
-            <div className="flex items-center gap-4 mb-4">
-              <Image
-                width={0}
-                height={0}
-                src="https://i.pravatar.cc/100?img=45"
-                alt="User 2"
-                className="w-12 h-12 rounded-full"
-              />
-              <div>
-                <h3 className="font-semibold text-gray-800">Jason Lee</h3>
-                <p className="text-sm text-gray-500">Tech Writer</p>
+              {/* Quote */}
+              <div className="flex items-start gap-2 text-gray-700">
+                <FaQuoteLeft className="text-purple-400 text-xl mt-1" />
+                <p className="italic leading-relaxed">{t.quote}</p>
               </div>
             </div>
-            <p className="text-gray-700">
-              “The speed and simplicity of WriteFlow helped me grow my audience
-              faster than ever.”
-            </p>
-          </div>
-
-          {/* Testimonial 3 */}
-          <div className="bg-slate-50 rounded-xl shadow-md p-6 text-left hover:shadow-lg transition">
-            <div className="flex items-center gap-4 mb-4">
-              <Image
-                width={0}
-                height={0}
-                src="https://i.pravatar.cc/100?img=12"
-                alt="User 3"
-                className="w-12 h-12 rounded-full"
-              />
-              <div>
-                <h3 className="font-semibold text-gray-800">Nadia Chowdhury</h3>
-                <p className="text-sm text-gray-500">Poet & Essayist</p>
-              </div>
-            </div>
-            <p className="text-gray-700">
-              “I feel safe sharing my work here. The platform is secure and
-              beautifully designed.”
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </section>

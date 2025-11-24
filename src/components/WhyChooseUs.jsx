@@ -1,9 +1,18 @@
+import {
+  FaCheckCircle,
+  FaFileAlt,
+  FaLaptopCode,
+  FaLightbulb,
+} from "react-icons/fa";
+
 // components/WhyChooseUs.jsx
 export default function WhyChooseUs() {
   return (
     <section className="py-16 px-6">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose WriteFlow</h2>
+        <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          Why Choose WriteFlow
+        </h2>
         <p className="text-lg text-gray-600 mb-12">
           Empower your voice with simplicity, speed, and security.
         </p>
@@ -14,7 +23,8 @@ export default function WhyChooseUs() {
             <div className="text-purple-500 text-3xl mb-4">📝</div>
             <h3 className="text-xl font-semibold mb-2">Simplicity</h3>
             <p className="text-gray-600">
-              Write and publish effortlessly with a clean, distraction-free interface.
+              Write and publish effortlessly with a clean, distraction-free
+              interface.
             </p>
           </div>
 
@@ -23,7 +33,8 @@ export default function WhyChooseUs() {
             <div className="text-blue-500 text-3xl mb-4">⚡</div>
             <h3 className="text-xl font-semibold mb-2">Speed</h3>
             <p className="text-gray-600">
-              Lightning-fast performance so your words reach your audience instantly.
+              Lightning-fast performance so your words reach your audience
+              instantly.
             </p>
           </div>
 
@@ -32,16 +43,22 @@ export default function WhyChooseUs() {
             <div className="text-green-500 text-3xl mb-4">🔒</div>
             <h3 className="text-xl font-semibold mb-2">Security</h3>
             <p className="text-gray-600">
-              Your content is protected with best-in-class privacy and data security.
+              Your content is protected with best-in-class privacy and data
+              security.
             </p>
           </div>
         </div>
 
         {/* Illustration Placeholder */}
         <div className="flex justify-center">
-          <div className="w-full max-w-4xl h-64 bg-gradient-to-tr from-purple-100 to-pink-100 rounded-3xl flex items-center justify-center shadow-md">
+          <div className="w-full max-w-4xl h-64 bg-linear-to-tr from-purple-100 to-pink-100 rounded-3xl flex items-center justify-center shadow-md">
             <span className="text-purple-500 text-xl font-semibold">
-              [ Illustration: Blog Benefits ]
+              <div className="flex gap-6 text-purple-500 justify-center">
+                <FaLaptopCode className="text-4xl" />
+                <FaFileAlt className="text-4xl" />
+                <FaLightbulb className="text-4xl" />
+                <FaCheckCircle className="text-4xl" />
+              </div>
             </span>
           </div>
         </div>
