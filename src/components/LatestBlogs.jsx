@@ -1,5 +1,6 @@
 import getLatestBlogs from "@/lib/getLatestBlogs";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default async function LatestBlogs() {
@@ -7,13 +8,12 @@ export default async function LatestBlogs() {
   console.log(latestBlogs);
   return (
     <div>
-      {" "}
       <section className="py-16 px-6">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-9">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold text-gray-900 mb-9  text-center">
             Latest Blogs
           </h2>
-          <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
             Discover fresh insights, tutorials, and stories from writers around
             the globe. Stay inspired with practical tips, creative ideas, and
             the latest trends in blogging and digital storytelling.
@@ -23,7 +23,7 @@ export default async function LatestBlogs() {
             {latestBlogs.slice(0, 6).map((blog) => (
               <div
                 key={blog._id}
-                className="rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col"
+                className="bg-linear-to-tr from-indigo-100 via-pink-50 to-purple-100 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col"
               >
                 {/* Blog Image */}
                 <div className="relative w-full h-48">
@@ -57,16 +57,18 @@ export default async function LatestBlogs() {
                       <p className="font-medium text-gray-700">{blog.author}</p>
                       <p>
                         {blog.category} • {blog.readTime} •{" "}
-                        {new Date(blog.publishedAt).toLocaleDateString()}
+                        Date: {blog.publishedAt}
                       </p>
                     </div>
                   </div>
 
                   {/* Details Button */}
                   <div className="mt-auto">
-                    <button className="btn btn-primary w-full">
-                      View Details
-                    </button>
+                    <Link href={`/blogs/${blog._id}`}>
+                      <button className="btn btn-primary w-full">
+                        View Details
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>

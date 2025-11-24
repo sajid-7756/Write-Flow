@@ -17,7 +17,7 @@ export default function OurMission() {
 
         {/* Supporting Values */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+          <div className="bg-linear-to-tr from-indigo-100 via-pink-50 to-purple-100 rounded-xl shadow-md p-6 hover:shadow-lg transition">
             <FaBolt className="text-blue-500 text-3xl mb-4" />
             <h3 className="text-xl font-semibold mb-2">Simplicity & Speed</h3>
             <p className="text-gray-600 text-sm">
@@ -25,7 +25,7 @@ export default function OurMission() {
               so your ideas flow naturally.
             </p>
           </div>
-          <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+          <div className="bg-linear-to-tr from-indigo-100 via-pink-50 to-purple-100 rounded-xl shadow-md p-6 hover:shadow-lg transition">
             <FaUsers className="text-green-500 text-3xl mb-4" />
             <h3 className="text-xl font-semibold mb-2">Community</h3>
             <p className="text-gray-600 text-sm">
@@ -33,7 +33,7 @@ export default function OurMission() {
               a supportive environment.
             </p>
           </div>
-          <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+          <div className="bg-linear-to-tr from-indigo-100 via-pink-50 to-purple-100 rounded-xl shadow-md p-6 hover:shadow-lg transition">
             <FaFeatherAlt className="text-purple-500 text-3xl mb-4" />
             <h3 className="text-xl font-semibold mb-2">Creativity</h3>
             <p className="text-gray-600 text-sm">

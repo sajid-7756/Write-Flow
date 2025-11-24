@@ -41,7 +41,7 @@ export default function TestimonialSection() {
           ].map((t, i) => (
             <div
               key={i}
-              className="bg-white rounded-xl shadow-md p-8 text-left hover:shadow-xl hover:-translate-y-1 transition transform flex flex-col"
+              className="bg-linear-to-tr from-indigo-100 via-pink-50 to-purple-100 rounded-xl shadow-md p-8 text-left hover:shadow-xl hover:-translate-y-1 transition transform flex flex-col"
             >
               {/* Avatar + Name */}
               <div className="flex items-center gap-4 mb-6">

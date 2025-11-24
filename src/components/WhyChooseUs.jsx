@@ -19,7 +19,7 @@ export default function WhyChooseUs() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {/* Feature: Simplicity */}
-          <div className="bg-white rounded-xl shadow-md p-6 text-left hover:shadow-lg transition">
+          <div className="bg-linear-to-tr from-indigo-100 via-pink-50 to-purple-100 rounded-xl shadow-md p-6 text-left hover:shadow-lg transition">
             <div className="text-purple-500 text-3xl mb-4">📝</div>
             <h3 className="text-xl font-semibold mb-2">Simplicity</h3>
             <p className="text-gray-600">
@@ -29,7 +29,7 @@ export default function WhyChooseUs() {
           </div>
 
           {/* Feature: Speed */}
-          <div className="bg-white rounded-xl shadow-md p-6 text-left hover:shadow-lg transition">
+          <div className="bg-linear-to-tr from-indigo-100 via-pink-50 to-purple-100 rounded-xl shadow-md p-6 text-left hover:shadow-lg transition">
             <div className="text-blue-500 text-3xl mb-4">⚡</div>
             <h3 className="text-xl font-semibold mb-2">Speed</h3>
             <p className="text-gray-600">
@@ -39,7 +39,7 @@ export default function WhyChooseUs() {
           </div>
 
           {/* Feature: Security */}
-          <div className="bg-white rounded-xl shadow-md p-6 text-left hover:shadow-lg transition">
+          <div className="bg-linear-to-tr from-indigo-100 via-pink-50 to-purple-100 rounded-xl shadow-md p-6 text-left hover:shadow-lg transition">
             <div className="text-green-500 text-3xl mb-4">🔒</div>
             <h3 className="text-xl font-semibold mb-2">Security</h3>
             <p className="text-gray-600">

@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function FeaturesPage() {
+export default function ManageBlogsPage() {
   return (
     <div>
-      features page
+      manage blogs
     </div>
   )
 }

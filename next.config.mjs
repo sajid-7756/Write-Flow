@@ -2,7 +2,6 @@
 const nextConfig = {
   reactCompiler: true,
   images: {
-    domains: ["i.pravatar.cc", "images.unsplash.com"],
     remotePatterns: [
       {
         protocol: "https",
@@ -15,6 +14,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "i.ibb.co.com",
+      },
+      {
+        protocol: "https",
+        hostname: "i.pravatar.cc",
       },
     ],
   },

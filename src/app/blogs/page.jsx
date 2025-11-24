@@ -1,9 +1,10 @@
-import React from 'react'
+import BlogGrid from "@/components/BlogGrid";
+import getAllBlogs from "@/lib/getAllBlogs";
+import React from "react";
 
-export default function BlogsPage() {
-  return (
-    <div>
-      Blogs
-    </div>
-  )
+export default async function BlogsPage() {
+  const blogs = await getAllBlogs();
+  console.log(blogs);
+
+  return <BlogGrid blogs={blogs} />;
 }

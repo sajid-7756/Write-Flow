@@ -18,10 +18,10 @@ export default async function Navbar() {
         <Link href={"/blogs"}>Blogs</Link>
       </li>
       <li>
-        <Link href={"/features"}>Features</Link>
+        <Link href={"/add-blogs"}>Add Blogs</Link>
       </li>
       <li>
-        <Link href={"/why-choose-us"}>Why Choose Us</Link>
+        <Link href={"/manage-blogs"}>Manage Blogs</Link>
       </li>
       <li>
         <Link href={"/about"}>About</Link>
@@ -61,7 +61,7 @@ export default async function Navbar() {
               {links}
             </ul>
           </div>
-          <a className="text-xl font-bold">WriteFlow</a>
+          <Link href={'/'} className="text-xl font-bold">WriteFlow</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -69,15 +69,16 @@ export default async function Navbar() {
         <div className="navbar-end">
           {session?.user ? (
             <details className="dropdown">
-              <summary className="btn m-1">
+              <summary className="m-1 btn">
                 <Image
+                className="rounded-full"
                   width={30}
                   height={30}
                   src={session?.user?.image}
                   alt={session?.user?.name}
                 />
               </summary>
-              <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+              <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-40 p-2 shadow-sm">
                 <li>
                   <Logout></Logout>
                 </li>
