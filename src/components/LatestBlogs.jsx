@@ -2,10 +2,11 @@ import getLatestBlogs from "@/lib/getLatestBlogs";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import BlogImage from "./BlogImage";
 
 export default async function LatestBlogs() {
   const latestBlogs = await getLatestBlogs();
-  console.log(latestBlogs);
+
   return (
     <div>
       <section className="py-16 px-6">
@@ -27,12 +28,7 @@ export default async function LatestBlogs() {
               >
                 {/* Blog Image */}
                 <div className="relative w-full h-48">
-                  <Image
-                    src={blog.image || "/fallback.jpg"}
-                    alt={blog.title}
-                    fill
-                    className="object-cover rounded-t-xl"
-                  />
+                  <BlogImage blog={blog}></BlogImage>
                 </div>
 
                 {/* Content */}
@@ -41,7 +37,7 @@ export default async function LatestBlogs() {
                     {blog.title}
                   </h3>
                   <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                    {blog.excerpt}
+                    {blog.shortDescription}
                   </p>
 
                   {/* Meta Info */}
@@ -56,8 +52,8 @@ export default async function LatestBlogs() {
                     <div>
                       <p className="font-medium text-gray-700">{blog.author}</p>
                       <p>
-                        {blog.category} • {blog.readTime} •{" "}
-                        Date: {blog.publishedAt}
+                        {blog.category} • {blog.readTime} • Date:{" "}
+                        {blog.publishedAt}
                       </p>
                     </div>
                   </div>

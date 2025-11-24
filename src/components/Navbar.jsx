@@ -61,7 +61,9 @@ export default async function Navbar() {
               {links}
             </ul>
           </div>
-          <Link href={'/'} className="text-xl font-bold">WriteFlow</Link>
+          <Link href={"/"} className="text-xl font-bold">
+            WriteFlow
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -71,7 +73,7 @@ export default async function Navbar() {
             <details className="dropdown">
               <summary className="m-1 btn">
                 <Image
-                className="rounded-full"
+                  className="rounded-full"
                   width={30}
                   height={30}
                   src={session?.user?.image}
@@ -88,9 +90,14 @@ export default async function Navbar() {
               </ul>
             </details>
           ) : (
-            <Link href={"/login"} className="btn">
-              Sign In
-            </Link>
+            <div className="space-x-2">
+              <Link href={"/login"} className="btn btn-outline btn-primary">
+                Sign In
+              </Link>
+              <Link href={"/login"} className="btn btn-outline btn-primary">
+                Sign Up
+              </Link>
+            </div>
           )}
         </div>
       </MyContainer>

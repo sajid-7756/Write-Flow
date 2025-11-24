@@ -2,6 +2,7 @@
 import { default as Image } from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import BlogImage from "./BlogImage";
 
 export default function BlogGrid({ blogs }) {
   const [search, setSearch] = useState("");
@@ -15,6 +16,8 @@ export default function BlogGrid({ blogs }) {
     const matchesCategory = category === "All" || blog.category === category;
     return matchesSearch && matchesCategory;
   });
+
+  console.log(filteredBlogs);
 
   const categories = ["All", ...new Set(blogs.map((b) => b.category))];
 
@@ -59,12 +62,7 @@ export default function BlogGrid({ blogs }) {
             >
               {/* Blog Image */}
               <div className="relative w-full h-48">
-                <Image
-                  src={blog.image || "/fallback.jpg"}
-                  alt={blog.title}
-                  fill
-                  className="object-cover rounded-t-xl"
-                />
+                <BlogImage blog={blog}></BlogImage>
               </div>
 
               {/* Content */}
@@ -73,7 +71,7 @@ export default function BlogGrid({ blogs }) {
                   {blog.title}
                 </h3>
                 <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                  {blog.excerpt}
+                  {blog.shortDescription}
                 </p>
 
                 {/* Meta Info */}
@@ -88,8 +86,8 @@ export default function BlogGrid({ blogs }) {
                   <div>
                     <p className="font-medium text-gray-700">{blog.author}</p>
                     <p>
-                      {blog.category} • {blog.readTime} •{" "}
-                      Date: {blog.publishedAt}
+                      {blog.category} • {blog.readTime} • Date:{" "}
+                      {blog.publishedAt}
                     </p>
                   </div>
                 </div>
