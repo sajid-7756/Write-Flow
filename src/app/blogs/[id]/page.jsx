@@ -12,6 +12,7 @@ export default async function BlogDetailsPage({ params }) {
   if(!blog._id) {
     notFound()
   }
+  
 
   return (
     <div>
