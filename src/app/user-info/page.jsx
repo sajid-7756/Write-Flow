@@ -16,7 +16,7 @@ export default async function UserInfoPage() {
 
   return (
     <section className="flex items-center justify-center min-h-screen p-6">
-      <div className="bg-white shadow-lg rounded-xl p-8 max-w-md w-full text-center">
+      <div className="bg-linear-to-tr from-indigo-100 via-pink-50 to-purple-100 shadow-lg rounded-xl p-8 max-w-md w-full text-center">
         {/* Profile Picture */}
         <div className="flex justify-center mb-6">
           <Image
