@@ -97,9 +97,6 @@ export default async function Navbar() {
           ) : (
             <div className="space-x-2">
               <Link href={"/login"} className="btn btn-outline btn-primary">
-                Sign In
-              </Link>
-              <Link href={"/login"} className="btn btn-outline btn-primary">
                 Sign Up
               </Link>
             </div>
