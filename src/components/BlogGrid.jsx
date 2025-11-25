@@ -17,8 +17,6 @@ export default function BlogGrid({ blogs }) {
     return matchesSearch && matchesCategory;
   });
 
-  console.log(filteredBlogs);
-
   const categories = ["All", ...new Set(blogs.map((b) => b.category))];
 
   return (
