@@ -9,6 +9,7 @@ export default function AddBlogForm({ user }) {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -28,7 +29,7 @@ export default function AddBlogForm({ user }) {
       authorEmail: user?.email,
     };
 
-    const res = await fetch(`http://localhost:4000/blogs`, {
+    const res = await fetch(`https://writeflow-server.vercel.app/blogs`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -40,6 +41,7 @@ export default function AddBlogForm({ user }) {
     console.log(postData);
 
     toast.success("Blog added successfully!");
+    reset()
   };
 
   return (

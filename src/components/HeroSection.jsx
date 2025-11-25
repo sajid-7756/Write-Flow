@@ -1,3 +1,4 @@
+"use client";
 import {
   FaFileAlt,
   FaLaptopCode,
@@ -6,8 +7,14 @@ import {
   FaShieldAlt,
 } from "react-icons/fa";
 
-// components/HeroSection.jsx
 export default function HeroSection() {
+  const handleGetStart = () => {
+    window.scrollTo({
+      top: 800,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center px-6">
       <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -20,10 +27,16 @@ export default function HeroSection() {
             Start writing, sharing, and building your audience today.
           </p>
           <div className="flex gap-4">
-            <button className="btn btn-primary text-white px-6 py-3 rounded-lg">
+            <button
+              onClick={handleGetStart}
+              className="btn btn-primary text-white px-6 py-3 rounded-lg"
+            >
               Get Started
             </button>
-            <button className="btn btn-outline px-6 py-3 rounded-lg">
+            <button
+              onClick={handleGetStart}
+              className="btn btn-outline px-6 py-3 rounded-lg"
+            >
               Browse Blogs
             </button>
           </div>
@@ -38,7 +51,7 @@ export default function HeroSection() {
                 <FaLaptopCode className="text-4xl" />
                 <FaFileAlt className="text-4xl" />
                 <FaLightbulb className="text-4xl" />
-                <FaShieldAlt   className="text-4xl" />
+                <FaShieldAlt className="text-4xl" />
               </div>
             </span>
           </div>

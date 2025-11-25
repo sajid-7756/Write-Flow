@@ -7,7 +7,7 @@ export default function BlogTable({ blogs: initalBlogs }) {
   const [blogs, setBlogs] = useState(initalBlogs);
 
   const handleDelete = async (id) => {
-    const res = await fetch(`http://localhost:4000/blogs/${id}`, {
+    const res = await fetch(`https://writeflow-server.vercel.app/blogs/${id}`, {
       method: "DELETE",
     });
     const data = await res.json();

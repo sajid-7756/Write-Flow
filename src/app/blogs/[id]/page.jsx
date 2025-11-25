@@ -1,13 +1,17 @@
 import BlogDetailImage from "@/components/BlogDetailImage";
-import BlogImage from "@/components/BlogImage";
 import BackButton from "@/components/Button";
 import getBlog from "@/lib/getBlog";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import React from "react";
 
 export default async function BlogDetailsPage({ params }) {
   const { id } = await params;
   const blog = await getBlog(id);
+
+  if(!blog._id) {
+    notFound()
+  }
 
   return (
     <div>

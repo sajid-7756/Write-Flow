@@ -32,7 +32,7 @@ export default async function Navbar() {
   );
 
   return (
-    <div className="navbar shadow-sm sticky z-50 top-0 bg-white/30 ">
+    <div className="navbar shadow-sm sticky z-50 top-0 bg-white/30 backdrop-blur-md">
       <MyContainer className="flex">
         <div className="navbar-start">
           <div className="dropdown">
@@ -61,7 +61,7 @@ export default async function Navbar() {
             </ul>
           </div>
           <Link href={"/"} className="text-xl font-bold">
-            WriteFlow
+            Write<span className="text-purple-800">Flow</span>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -70,7 +70,7 @@ export default async function Navbar() {
         <div className="navbar-end">
           {session?.user ? (
             <details className="dropdown">
-              <summary className="m-1 btn">
+              <summary className="m-1 btn btn-outline border-none">
                 <Image
                   className="rounded-full"
                   width={30}
@@ -79,12 +79,15 @@ export default async function Navbar() {
                   alt={session?.user?.name}
                 />
               </summary>
-              <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-40 p-2 shadow-sm">
+              <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-40 p-2 shadow-sm space-y-2">
                 <li>
-                  <Logout></Logout>
+                  <Link href={"/add-blogs"}>Add Blogs</Link>
                 </li>
                 <li>
-                  <a>Item 2</a>
+                  <Link href={"/manage-blogs"}>Manage Blogs</Link>
+                </li>
+                <li>
+                  <Logout></Logout>
                 </li>
               </ul>
             </details>
