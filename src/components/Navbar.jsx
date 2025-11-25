@@ -79,7 +79,7 @@ export default async function Navbar() {
                   alt={session?.user?.name}
                 />
               </summary>
-              <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-40 p-2 shadow-sm space-y-2">
+              <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-40 right-0 sm:right-auto p-2 shadow-sm space-y-2">
                 <li>
                   <Link href={"/add-blogs"}>Add Blogs</Link>
                 </li>
