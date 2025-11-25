@@ -19,35 +19,40 @@ export default function BlogTable({ blogs: initalBlogs }) {
   };
 
   return (
-    <tbody>
-      {blogs.map((blog, index) => (
-        <tr key={blog._id} className="hover:bg-indigo-50 transition">
-          <td>{index + 1}</td>
-          <td className="font-semibold">{blog.title}</td>
-          <td>
-            <span className="badge badge-outline badge-primary">
-              {blog.category}
-            </span>
-          </td>
-          <td>
-            <div className="flex gap-2 justify-center">
-              <Link
-                href={`/blogs/${blog._id}`}
-                className="btn btn-sm btn-outline btn-primary"
-              >
-                View
-              </Link>
+    <>
+      {blogs.length === 0 && (
+        <p className="text-2xl">You did not posted any blogs...</p>
+      )}
+      <tbody>
+        {blogs.map((blog, index) => ( 
+          <tr key={blog._id} className="hov er:bg-indigo-50 transition">
+            <td>{index + 1}</td>
+            <td className="font-semibold">{blog.title}</td>
+            <td>
+              <span className="badge badge-outline badge-primary">
+                {blog.category}
+              </span>
+            </td>
+            <td>
+              <div className="flex gap-2 justify-center">
+                <Link
+                  href={`/blogs/${blog._id}`}
+                  className="btn btn-sm btn-outline btn-primary"
+                >
+                  View
+                </Link>
 
-              <button
-                onClick={() => handleDelete(blog._id)}
-                className="btn btn-sm btn-outline btn-error"
-              >
-                Delete
-              </button>
-            </div>
-          </td>
-        </tr>
-      ))}
-    </tbody>
+                <button
+                  onClick={() => handleDelete(blog._id)}
+                  className="btn btn-sm btn-outline btn-error"
+                >
+                  Delete
+                </button>
+              </div>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </>
   );
 }
