@@ -3,11 +3,14 @@
 
 WriteFlow is a clean, minimal, and fully functional blogging platform built with Next.js, MongoDB, NextAuth, and Tailwind CSS.
 It allows users to create, read, and manage blog posts with a smooth UI and secure authentication.
+
+👉 [Server](https://github.com/sajid-7756/Write-Flow-Server)
+
 # Features
 
 ## 📝 Blogging System
 
-- Create, edit, delete blog posts
+- Create, edit, and delete blog posts
 
 - Rich content with featured image, categories, and excerpt
 
