@@ -1,11 +1,6 @@
 "use client";
-import {
-  FaFileAlt,
-  FaLaptopCode,
-  FaLightbulb,
-  FaPenFancy,
-  FaShieldAlt,
-} from "react-icons/fa";
+
+import Image from "next/image";
 
 export default function HeroSection() {
   const handleGetStart = () => {
@@ -44,17 +39,13 @@ export default function HeroSection() {
 
         {/* Right Illustration Placeholder */}
         <div className="flex justify-center">
-          <div className="w-full h-120 bg-linear-to-tr from-purple-100 to-pink-100 rounded-3xl flex items-center justify-center shadow-md">
-            <span className="text-purple-500 text-xl font-semibold">
-              <div className="flex items-center justify-center gap-6 text-purple-600">
-                <FaPenFancy className="text-4xl" />
-                <FaLaptopCode className="text-4xl" />
-                <FaFileAlt className="text-4xl" />
-                <FaLightbulb className="text-4xl" />
-                <FaShieldAlt className="text-4xl" />
-              </div>
-            </span>
-          </div>
+          <Image
+            src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmxvZ3xlbnwwfHwwfHx8MA%3D%3D"
+            alt="blog"
+            width={1000}
+            height={500}
+            className="rounded-2xl shadow-2xl"
+          />
         </div>
       </div>
     </section>
