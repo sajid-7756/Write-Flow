@@ -1,77 +1,33 @@
 import getLatestBlogs from "@/lib/getLatestBlogs";
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
-import BlogImage from "./BlogImage";
+import BlogCard from "./BlogCard";
 
 export default async function LatestBlogs() {
   const latestBlogs = await getLatestBlogs();
 
   return (
-    <div>
-      <section className="py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-900 mb-9  text-center">
-            Latest Blogs
+    <section className="py-24 px-6 overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col items-center mb-16 text-center">
+          <h2 className="text-purple-600 font-bold tracking-widest text-sm uppercase mb-4">
+            Fresh Content
           </h2>
-          <p className="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
-            Discover fresh insights, tutorials, and stories from writers around
-            the globe. Stay inspired with practical tips, creative ideas, and
-            the latest trends in blogging and digital storytelling.
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+            Latest Stories
+          </h2>
+          <div className="w-20 h-1.5 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full mb-8"></div>
+          <p className="text-lg text-gray-500 max-w-2xl leading-relaxed">
+            Stay updated with the latest trends and stories from our passionate community of writers.
           </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {latestBlogs.slice(0, 6).map((blog) => (
-              <div
-                key={blog._id}
-                className="bg-linear-to-tr from-indigo-100 via-pink-50 to-purple-100 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col"
-              >
-                {/* Blog Image */}
-                <div className="relative w-full h-48">
-                  <BlogImage blog={blog}></BlogImage>
-                </div>
-
-                {/* Content */}
-                <div className="p-6 flex flex-col grow">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2 line-clamp-1">
-                    {blog.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                    {blog.shortDescription}
-                  </p>
-
-                  {/* Meta Info */}
-                  <div className="flex items-center gap-3 text-sm text-gray-500 mb-4">
-                    <Image
-                      src={blog.authorAvatar}
-                      alt={blog.author}
-                      width={32}
-                      height={32}
-                      className="rounded-full"
-                    />
-                    <div>
-                      <p className="font-medium text-gray-700">{blog.author}</p>
-                      <p>
-                        {blog.category} • {blog.readTime} • Date:{" "}
-                        {blog.publishedAt}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Details Button */}
-                  <div className="mt-auto">
-                    <Link href={`/blogs/${blog._id}`}>
-                      <button className="btn btn-primary w-full">
-                        View Details
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
-      </section>
-    </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {latestBlogs.slice(0, 6).map((blog, index) => (
+            <BlogCard key={blog._id} blog={blog} index={index} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
+

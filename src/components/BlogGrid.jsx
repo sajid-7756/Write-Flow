@@ -1,14 +1,12 @@
 "use client";
-import { default as Image } from "next/image";
-import Link from "next/link";
 import { useState } from "react";
-import BlogImage from "./BlogImage";
+import BlogCard from "./BlogCard";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function BlogGrid({ blogs }) {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
 
-  // Filter blogs by search + category
   const filteredBlogs = blogs.filter((blog) => {
     const matchesSearch = blog.title
       .toLowerCase()
@@ -20,89 +18,97 @@ export default function BlogGrid({ blogs }) {
   const categories = ["All", ...new Set(blogs.map((b) => b.category))];
 
   return (
-    <section className="py-16 px-6">
+    <section className="py-24 px-6 min-h-screen">
       <div className="max-w-7xl mx-auto ">
         {/* Heading */}
-        <h2 className="text-4xl font-bold text-gray-900 mb-6">All Blogs</h2>
-        <p className="text-lg text-gray-600 mb-8">
-          Explore insights, tutorials, and stories from writers around the
-          globe.
-        </p>
+        <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           className="mb-12"
+        >
+          <h2 className="text-5xl font-black text-gray-900 mb-4 tracking-tight">All Blogs</h2>
+          <p className="text-xl text-gray-500 max-w-2xl leading-relaxed">
+            Explore insights, tutorials, and stories from writers around the globe.
+          </p>
+        </motion.div>
 
         {/* Search + Filter */}
-        <div className="flex flex-col md:flex-row gap-4 mb-10">
-          <input
-            type="text"
-            placeholder="Search blogs..."
-            className="input input-bordered w-full md:w-1/2 bg-pink-50"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <select
-            className="select select-bordered w-full md:w-1/4 bg-pink-100"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          >
-            {categories.map((cat) => (
-              <option key={cat} value={cat}>
-                {cat}
-              </option>
-            ))}
-          </select>
-        </div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="flex flex-col md:flex-row gap-6 mb-16 p-8 bg-white border border-gray-100 rounded-3xl shadow-sm"
+        >
+          <div className="relative flex-1 group">
+            <svg 
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-purple-500 transition-colors" 
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input
+              type="text"
+              placeholder="Search by title..."
+              className="w-full pl-12 pr-4 py-4 bg-gray-50 border-none rounded-2xl focus:ring-2 focus:ring-purple-500 transition-all text-gray-700"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
+          
+          <div className="relative md:w-1/4">
+            <select
+              className="w-full px-4 py-4 bg-gray-50 border-none rounded-2xl focus:ring-2 focus:ring-purple-500 transition-all text-gray-700 appearance-none cursor-pointer"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              {categories.map((cat) => (
+                <option key={cat} value={cat}>
+                  {cat}
+                </option>
+              ))}
+            </select>
+            <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </motion.div>
 
         {/* Blog Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredBlogs.map((blog) => (
-            <div
-              key={blog._id}
-              className=" bg-linear-to-tr from-indigo-100 via-pink-50 to-purple-100 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col"
-            >
-              {/* Blog Image */}
-              <div className="relative w-full h-48">
-                <BlogImage blog={blog}></BlogImage>
-              </div>
+        <motion.div 
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredBlogs.map((blog, index) => (
+              <motion.div
+                key={blog._id}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+              >
+                 <BlogCard blog={blog} index={index} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
 
-              {/* Content */}
-              <div className="p-6 flex flex-col grow">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2 line-clamp-1">
-                  {blog.title}
-                </h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                  {blog.shortDescription}
-                </p>
-
-                {/* Meta Info */}
-                <div className="flex items-center gap-3 text-sm text-gray-500 mb-4">
-                  <Image
-                    src={blog.authorAvatar}
-                    alt={blog.author}
-                    width={32}
-                    height={32}
-                    className="rounded-full"
-                  />
-                  <div>
-                    <p className="font-medium text-gray-700">{blog.author}</p>
-                    <p>
-                      {blog.category} • {blog.readTime} • Date:{" "}
-                      {blog.publishedAt}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Details Button */}
-                <div className="mt-auto">
-                  <Link href={`/blogs/${blog._id}`}>
-                    <button className="btn btn-primary w-full">
-                      View Details
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        {filteredBlogs.length === 0 && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-20"
+          >
+            <div className="text-6xl mb-4">🔍</div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">No blogs found</h3>
+            <p className="text-gray-500">Try adjusting your search or category filter</p>
+          </motion.div>
+        )}
       </div>
     </section>
   );
 }
+
