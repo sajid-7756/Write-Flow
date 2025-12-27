@@ -30,7 +30,7 @@ export default async function ManageBlogsPage() {
         </div>
 
         {/* Table Container */}
-        <div className="bg-white rounded-[2rem] shadow-xl shadow-gray-200/50 border border-gray-100 overflow-hidden">
+        <div className="bg-white rounded-4xl shadow-xl shadow-gray-200/50 border border-gray-100 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="table w-full">
               {/* head */}

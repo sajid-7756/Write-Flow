@@ -35,9 +35,16 @@ export default function BlogTable({ blogs: initialBlogs }) {
             <td colSpan="4" className="py-20 text-center">
               <div className="flex flex-col items-center">
                 <div className="text-6xl mb-4">✍️</div>
-                <h3 className="text-xl font-bold text-gray-900">No blogs yet</h3>
-                <p className="text-gray-500">Time to share your first story with the world!</p>
-                <Link href="/add-blogs" className="btn btn-primary mt-6 rounded-2xl px-8">
+                <h3 className="text-xl font-bold text-gray-900">
+                  No blogs yet
+                </h3>
+                <p className="text-gray-500">
+                  Time to share your first story with the world!
+                </p>
+                <Link
+                  href="/add-blogs"
+                  className="btn btn-primary mt-6 rounded-2xl px-8"
+                >
                   Create Blog
                 </Link>
               </div>
@@ -56,7 +63,7 @@ export default function BlogTable({ blogs: initialBlogs }) {
             >
               <td className="py-6 px-8 flex items-center gap-3">
                 <span className="text-xs font-black text-gray-300 group-hover:text-purple-400 transition-colors">
-                  #{String(index + 1).padStart(2, '0')}
+                  #{String(index + 1).padStart(2, "0")}
                 </span>
               </td>
               <td className="py-6 px-8">

@@ -27,7 +27,7 @@ export default function BlogGrid({ blogs }) {
            viewport={{ once: true }}
            className="mb-12"
         >
-          <h2 className="text-5xl font-black text-gray-900 mb-4 tracking-tight">All Blogs</h2>
+          <h2 className="text-5xl font-black text-gray-900 mb-4 tracking-tight">All Blogs ({blogs.length})</h2>
           <p className="text-xl text-gray-500 max-w-2xl leading-relaxed">
             Explore insights, tutorials, and stories from writers around the globe.
           </p>
