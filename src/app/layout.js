@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { Toaster } from "react-hot-toast";
 import AuthProvider from "@/components/AuthProvider/AuthProvider";
 import { auth } from "@/auth";
+import ReadingProgressBar from "@/components/ReadingProgressBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +30,7 @@ export default async function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
+        <ReadingProgressBar />
         <AuthProvider>
           <div className="min-h-screen flex flex-col">
             <Navbar session={session}></Navbar>

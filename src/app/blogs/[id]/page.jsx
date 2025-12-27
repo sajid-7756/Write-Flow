@@ -4,6 +4,7 @@ import getBlog from "@/lib/getBlog";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import React from "react";
+import ShareButtons from "@/components/ShareButtons";
 
 export default async function BlogDetailsPage({ params }) {
   const { id } = await params;
@@ -58,6 +59,8 @@ export default async function BlogDetailsPage({ params }) {
               <span>Date: {blog.publishedAt}</span>
               <BackButton>Back</BackButton>
             </div>
+
+            <ShareButtons title={blog.title} />
           </div>
         </div>
       </section>

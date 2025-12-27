@@ -38,7 +38,6 @@ export default function AddBlogForm({ user }) {
     });
 
     const postData = await res.json();
-    console.log(postData);
 
     toast.success("Blog added successfully!");
     reset()
