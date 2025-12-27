@@ -1,14 +1,26 @@
 "use client";
 
-import React, { useState } from "react";
-import { FaTwitter, FaFacebookF, FaLinkedinIn, FaLink, FaCheck } from "react-icons/fa";
+import React, { useEffect, useState } from "react";
+import {
+  FaTwitter,
+  FaFacebookF,
+  FaLinkedinIn,
+  FaLink,
+  FaCheck,
+} from "react-icons/fa";
 
 const ShareButtons = ({ title }) => {
   const [copied, setCopied] = useState(false);
-  const url = typeof window !== "undefined" ? window.location.href : "";
+  const [shareUrl, setShareUrl] = useState("");
 
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setShareUrl(window.location.href);
+  }, []);
+
+  if (!shareUrl) return null;
   const handleCopyLink = () => {
-    navigator.clipboard.writeText(url);
+    navigator.clipboard.writeText(shareUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -17,19 +29,23 @@ const ShareButtons = ({ title }) => {
     {
       name: "Twitter",
       icon: <FaTwitter />,
-      href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`,
+      href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(shareUrl)}`,
       color: "bg-[#1DA1F2]",
     },
     {
       name: "Facebook",
       icon: <FaFacebookF />,
-      href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+      href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+        shareUrl
+      )}`,
       color: "bg-[#4267B2]",
     },
     {
       name: "LinkedIn",
       icon: <FaLinkedinIn />,
-      href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
+      href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+        shareUrl
+      )}`,
       color: "bg-[#0077b5]",
     },
   ];

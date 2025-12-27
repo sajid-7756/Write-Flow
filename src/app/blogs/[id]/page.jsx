@@ -5,10 +5,13 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import React from "react";
 import ShareButtons from "@/components/ShareButtons";
+import CommentSection from "@/components/CommentSection";
+import { auth } from "@/auth";
 
 export default async function BlogDetailsPage({ params }) {
   const { id } = await params;
   const blog = await getBlog(id);
+  const session = await auth();
 
   if(!blog._id) {
     notFound()
@@ -23,13 +26,6 @@ export default async function BlogDetailsPage({ params }) {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-linear-to-tr from-indigo-100 via-pink-50 to-purple-100 p-10 rounded-md">
           {/* Left Side: Blog Image */}
           <div className="w-full">
-            {/* <Image
-              src={blog.image}
-              alt={blog.title}
-              width={800}
-              height={600}
-              className="rounded-xl shadow-lg object-cover w-full h-[400px]"
-            /> */}
             <BlogDetailImage blog={blog}></BlogDetailImage>
           </div>
 
@@ -57,13 +53,16 @@ export default async function BlogDetailsPage({ params }) {
             <div className="flex gap-6 items-center text-sm text-gray-500">
               <span>{blog.readTime} read</span>
               <span>Date: {blog.publishedAt}</span>
-              <BackButton>Back</BackButton>
+              <BackButton className>Back</BackButton>
             </div>
 
             <ShareButtons title={blog.title} />
           </div>
         </div>
       </section>
+      
+      {/* Comments Section */}
+      <CommentSection blogId={id} user={session?.user} />
     </div>
   );
 }
