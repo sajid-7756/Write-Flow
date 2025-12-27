@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import MyContainer from "./MyContainer";
 import Image from "next/image";
 import Logout from "./Logout";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { HiOutlineUser, HiOutlinePlusCircle, HiOutlineViewGrid, HiOutlineLogout, HiMenu, HiX } from "react-icons/hi";
 import { BsType } from "react-icons/bs";
